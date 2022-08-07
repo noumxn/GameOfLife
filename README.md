@@ -35,7 +35,6 @@ Frequently occurring examples (in that they emerge frequently from a random star
 ## Installation
 
 ### Requirements
-Made using TypeScript and React
 ```
 node v16.16.0
 npm 8.11.0
@@ -43,3 +42,43 @@ npm 8.11.0
 1. Install node and npm and make sure they are updated. Application does not work for versions of node v14.00.0 and below.
 2. Clone repository: ```git clone https://github.com/noumxn/GameOfLife.git```
 3. Run ```npm start``` and you're all set!
+
+
+This project made using TypeScript and React.js 
+
+### Available Scripts
+
+In the project directory, you can run:
+```
+npm start
+```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+```
+npm test
+```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm run build
+```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm run eject
+```
+__Note: this is a one-way operation. Once you `eject`, you can’t go back!__
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
