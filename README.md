@@ -35,10 +35,11 @@ Frequently occurring examples (in that they emerge frequently from a random star
 ## Installation
 
 ### Requirements
+Made using TypeScript and React
 ```
-1. node v16.16.0
-2. npm 8.11.0
+node v16.16.0
+npm 8.11.0
 ```
 1. Install node and npm and make sure they are updated. Application does not work for versions of node v14.00.0 and below.
-2. Clone repository: `git clone https://github.com/noumxn/GameOfLife.git`
-3. Run `npm start` and you're all set!
+2. Clone repository: ```git clone https://github.com/noumxn/GameOfLife.git```
+3. Run ```npm start``` and you're all set!
