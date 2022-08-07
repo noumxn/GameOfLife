@@ -15,14 +15,18 @@ const operations = [
   [-1, 1],
 ]
 
+const generateEmptyGrid = () => {
+  const rows = [];
+  for (let i = 0; i < numRows; i++) {
+    rows.push(Array.from(Array(numCols), () => 0))
+  }
+
+  return rows;
+}
+
 const App: React.FC = () => {
   const [grid, setGrid] = useState(() => {
-    const rows = [];
-    for (let i = 0; i < numRows; i++) {
-      rows.push(Array.from(Array(numCols), () => 0))
-    }
-
-    return rows;
+    return generateEmptyGrid();
   });
 
   const [running, setRunning] = useState(false);
@@ -36,6 +40,7 @@ const App: React.FC = () => {
       return;
     }
 
+    // Simulation Start point
     setGrid((g) => {
       return produce(g, gridCopy => {
         for (let i = 0; i < numRows; i++) {
@@ -49,13 +54,24 @@ const App: React.FC = () => {
               }
             })
 
+            // # Rules:
+            //
+            // Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+            // Any live cell with two or three live neighbours lives on to the next generation.
+            // Any live cell with more than three live neighbours dies, as if by overpopulation.
+            // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
             if (neighbours < 2 || neighbours > 3) {
-              
+              gridCopy[i][k] = 0;
+            } else if (g[i][k] === 0 && neighbours === 3) {
+              gridCopy[i][k] = 1;
             }
           }
         } 
       });
     });
+    // Simulation End point
+    
     setTimeout(runSimulation, 200);
   }, [])
 
@@ -64,9 +80,18 @@ const App: React.FC = () => {
       <button 
         onClick={() => {
           setRunning(!running);
+          if (!running) {
+            runningRef.current = true;
+            runSimulation();
+          }
         }}
       >
         { running ? "stop" : "start" }
+      </button>
+      <button onClick={() => {
+        setGrid(generateEmptyGrid())
+      }}> 
+        clear
       </button>
       <div 
         style={{
